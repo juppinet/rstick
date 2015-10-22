@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="martin" >
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Mock</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="theme.css" rel="stylesheet">
+
+  </head>
+
+  <body role="document">
+
+    <div class="container" role="main">
+            <div class="page-header">
+            <h3>REST URL References</h3>
+    </div>
+        <div class="top-padding"></div>
+        
+        <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>URL</th>
+                  <th>Output</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row"><a href="/device">/device</a></th>
+                  <td>Respons is a JSON with all known devices and last seen command.<br>
+                    I no devices is configured you will get an empty respons with just two brackets "[ ]"</td>
+                </tr>
+                <tr>
+                  <th scope="row"><a href="/device/1">/device/1</a></th>
+                  <td>Respons is a JSON with details of device with ID 1.<br>
+                      If there is no device with that ID you will get a 404 error.</td>
+                </tr>
+                <tr>
+                  <th scope="row"><a href="/device/1/lastcmd">/device/1/lastcmd</a></th>
+                  <td>Returns a string with the last know command sent to device with id 1. Example "ON", "OFF", "DIM 150" etc<br>
+                      Commands that you can send is ON, OFF, DIM {dimlevel}, BELL, UP, DOWN, STOP and EXECUTE.<br>
+                      If there is no device with that ID you will get a 404 error.
+                    </td>
+                </tr>
+                  <tr>
+                  <th scope="row"><a href="/device/1/set?cmd=ON">/device/1/set?cmd=ON</a></th>
+                  <td>Returns a string with the return status of command sent to device. "SUCCESS" if the call succeded and "FAILED" if something whent wrong.<br>
+                      If there is no device with that ID you will get a 404 error.
+
+                    </td>
+                </tr>
+                  <tr>
+                  <th scope="row"></th>
+                  <td></td>
+                </tr>
+                  <tr>
+                  <th scope="row"><a href="/sensor">/sensor</a></th>
+                  <td>Respons is a JSON with all known sensors seen the last 30 minutes.<br>
+                      If there is no sensors registered you will get an empty respons with just two brackets "[ ]"
+
+                    </td>
+                </tr>
+                  <tr>
+                  <th scope="row"><a href="/sensor/1">/sensor/1</a></th>
+                  <td>Respons is a JSON with details of thee sensor with ID 1.<br>
+                      If there is no sensor with that ID you will get a 404 error.
+                    </td>
+                </tr>
+              </tbody>
+            </table>
+        <div class="top-padding"></div>
+            <hr>
+       <p class="text-right"><small><a href="http://jstick.net">jstick.net</a> - <a href="http://getbootstrap.com">Bootstrap</a> - <a href="http://jquery.com/">jQuery</a> </small><span class="right-padding"></span></p>
+    </div> <!-- /container -->
+
+ 
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+      
+  </body>
+</html>
