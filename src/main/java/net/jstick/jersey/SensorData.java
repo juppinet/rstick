@@ -5,6 +5,7 @@ public class SensorData {
 	private int sensor;
 	private String metric;
 	private String value;
+	private String update;
 	
 	public SensorData(int id, int sensor, String metric, String value) {
 		super();
@@ -12,6 +13,15 @@ public class SensorData {
 		this.sensor = sensor;
 		this.metric = metric;
 		this.value = value;
+	}
+	
+	public SensorData(int id, int sensor, String metric, String value, String update) {
+		super();
+		this.id = id;
+		this.sensor = sensor;
+		this.metric = metric;
+		this.value = value;
+		this.update = update;
 	}
 
 	public int getId() {
@@ -45,6 +55,16 @@ public class SensorData {
 	public void setValue(String value) {
 		this.value = value;
 	}
+	
+	public String getUpdate() {
+		return update;
+	}
+	
+	public void setUpdate(String update){
+		this.update = update;
+	}
+	
+	
 
 	
 }

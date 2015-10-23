@@ -11,8 +11,8 @@ function printAlert(msg){
 }
             
 function printSensorList(dev){
-	$("#sensortable").append('<tr><th scope="row">' + dev.id + '</th><td><div id="temp' + dev.id + '"></div></td>' +            
-			'<td><div id="hum' + dev.id + '"></div></td><td><div id="time' + dev.id + '"></div></td></tr>');            
+		$("#sensortable").append('<tr><th scope="row">' + dev.id + '</th><td><div id="metric' + dev.id + dev.sensor + '"></div></td>' +            
+				'<td><div id="value' + dev.id + dev.sensor + '"></div></td><td><div id="time' + dev.id + dev.sensor + '"></div></td></tr>')    
 }
 
 function printDeviceList(dev){
@@ -57,9 +57,15 @@ function printStatus(element){
 
 
 function sensorsUpdate(element){
-	$("#temp" + element.id).html(element.temp +'&deg;C');
-	$("#hum" + element.id).html(element.hum + '%');
-	$("#time" + element.id).html(element.timeStampString);
+	$("#metric" + element.id + element.sensor).html(element.metric);
+	if (element.metric == 'temp'){
+		$("#value" + element.id + element.sensor).html(element.value +'&deg;C');
+	} else if (element.metric == 'hum'){
+		$("#value" + element.id + element.sensor).html(element.value + '%');
+	} else {
+		$("#value" + element.id + element.sensor).html(element.value );
+	}	
+	$("#time" + element.id + element.sensor).html(element.update);
 }
 
 function lightStatus(){
@@ -100,7 +106,7 @@ $(document).ready(function()
 		console.log( "toggel " + id + " " + cmd );
 
 		$.ajax({
-			url: baseUrl + "/device/" + id +"/set?cmd=" + cmd,
+			url: baseUrl + "/device/" + id +"/" + cmd,
 			type: "GET",
 			dataType : "text",
 
