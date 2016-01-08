@@ -4,7 +4,7 @@
 
   <groupId>net.jstick.jersey</groupId>
   <artifactId>rest</artifactId>
-  <version>1.0</version>
+  <version>1.1</version>
   <packaging>jar</packaging>
 
   <name>rstick</name>
@@ -58,9 +58,9 @@
 		</dependency>
 		
 		<dependency>
-	    <groupId>com.github.juppinet</groupId>
-	    <artifactId>jstick</artifactId>
-	    <version>1.7</version>
+	    	<groupId>com.github.juppinet</groupId>
+	    	<artifactId>jstick</artifactId>
+	    	<version>1.7</version>
 		</dependency>
 	
         

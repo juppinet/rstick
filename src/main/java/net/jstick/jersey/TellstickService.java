@@ -69,11 +69,11 @@ public class TellstickService {
 		Sensor sens = ts.getSensor(id);
 		ArrayList<SensorData> newlist = new ArrayList<>();
 		if(sens.getDataTypes()==1 ||sens.getDataTypes()==3 ){
-			newlist.add(new SensorData(sens.getId(),0,"temp",String.valueOf(sens.getTemperature())));
+			newlist.add(new SensorData(sens.getId(),0,"temp",String.valueOf(sens.getTemperature()), sens.getTimeStampString()));
 		}
 		
 		if(sens.getDataTypes()==2 ||sens.getDataTypes()==3  ){
-			newlist.add(new SensorData(sens.getId(),1,"hum",String.valueOf(sens.getHumidity())));
+			newlist.add(new SensorData(sens.getId(),1,"hum",String.valueOf(sens.getHumidity()), sens.getTimeStampString()));
 		}
 
 		return newlist;
