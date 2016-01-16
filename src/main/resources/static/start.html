@@ -34,25 +34,37 @@
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row"><a href="/device">/device</a></th>
+                  <th scope="row"><a href="/api/device">/api/device</a></th>
                   <td>Respons is a JSON with all known devices and last seen command.<br>
                     I no devices is configured you will get an empty respons with just two brackets "[ ]"</td>
                 </tr>
                 <tr>
-                  <th scope="row"><a href="/device/1">/device/1</a></th>
+                  <th scope="row"><a href="/api/device/1">/api/device/1</a></th>
                   <td>Respons is a JSON with details of device with ID 1.<br>
                       If there is no device with that ID you will get a 404 error.</td>
                 </tr>
                 <tr>
-                  <th scope="row"><a href="/device/1/lastcmd">/device/1/lastcmd</a></th>
+                  <th scope="row"><a href="/api/device/1/lastcmd">/api/device/1/lastcmd</a></th>
                   <td>Returns a string with the last know command sent to device with id 1. Example "ON", "OFF", "DIM 150" etc<br>
                       Commands that you can send is ON, OFF, DIM {dimlevel}, BELL, UP, DOWN, STOP and EXECUTE.<br>
                       If there is no device with that ID you will get a 404 error.
                     </td>
                 </tr>
+                <tr>
+                  <th scope="row"><a href="/api/device/1/state">/api/device/1/state</a></th>
+                  <td>Respons is a JSON string with the last known command sent to the device. 
+                    </td>
+                </tr>
                   <tr>
-                  <th scope="row"><a href="/device/1/set?cmd=ON">/device/1/set?cmd=ON</a></th>
-                  <td>Returns a string with the return status of command sent to device. "SUCCESS" if the call succeded and "FAILED" if something whent wrong.<br>
+                  <th scope="row"><a href="/api/device/1/ON">/api/device/1/ON</a></th>
+                  <td>Respons is a JSON string with the return status of command sent to device. "SUCCESS" if the call succeded and "FAILED" if something went wrong.<br>
+                      If there is no device with that ID you will get a 404 error.
+
+                    </td>
+                </tr>
+                <tr>
+                  <th scope="row"><a href="/api/device/1/OFF">/api/device/1/OF</a></th>
+                  <td>Respons is a JSON string with the return status of command sent to device. "SUCCESS" if the call succeded and "FAILED" if something went wrong.<br>
                       If there is no device with that ID you will get a 404 error.
 
                     </td>
@@ -62,15 +74,21 @@
                   <td></td>
                 </tr>
                   <tr>
-                  <th scope="row"><a href="/sensor">/sensor</a></th>
+                  <th scope="row"><a href="/api/sensor">/api/sensor</a></th>
                   <td>Respons is a JSON with all known sensors seen the last 30 minutes.<br>
                       If there is no sensors registered you will get an empty respons with just two brackets "[ ]"
 
                     </td>
                 </tr>
                   <tr>
-                  <th scope="row"><a href="/sensor/1">/sensor/1</a></th>
-                  <td>Respons is a JSON with details of thee sensor with ID 1.<br>
+                  <th scope="row"><a href="/api/sensor/1">/api/sensor/1</a></th>
+                  <td>Respons is a JSON with details of the sensor with ID 1.<br>
+                      If there is no sensor with that ID you will get a 404 error.
+                    </td>
+                </tr>
+                <tr>
+                  <th scope="row"><a href="/api/sensor/1/0">/api/sensor/1</a></th>
+                  <td>Respons is a JSON with details of the sensor with ID 1 and the second sensor data.<br>
                       If there is no sensor with that ID you will get a 404 error.
                     </td>
                 </tr>

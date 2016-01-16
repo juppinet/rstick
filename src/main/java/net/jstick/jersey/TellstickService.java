@@ -17,7 +17,8 @@ public class TellstickService {
 	private static Log log = LogFactory.getLog(RestService.class.getName());
 	
 	public  String sendCommand(int id, String command){
-		int status = ts.sendCmd(id, command);
+		// Repeat 3 times to ensure command send successfully
+		int status = ts.sendCmd(id, command,3);
 		String rback = "SUCCESS";
 		
 		if(status != 0){
@@ -30,8 +31,6 @@ public class TellstickService {
 	
 	public  String lastKnownState(int id){
 			Device dev = ts.getDevice(id);
-			//if (dev == null)
-				//throw new DeviceNotFoundException();
 			return dev.getLastCmd();
 		}
 
@@ -68,6 +67,7 @@ public class TellstickService {
 	public List<SensorData> getSensorDataList(int id) {
 		Sensor sens = ts.getSensor(id);
 		ArrayList<SensorData> newlist = new ArrayList<>();
+		if(sens != null){
 		if(sens.getDataTypes()==1 ||sens.getDataTypes()==3 ){
 			newlist.add(new SensorData(sens.getId(),0,"temp",String.valueOf(sens.getTemperature()), sens.getTimeStampString()));
 		}
@@ -75,7 +75,7 @@ public class TellstickService {
 		if(sens.getDataTypes()==2 ||sens.getDataTypes()==3  ){
 			newlist.add(new SensorData(sens.getId(),1,"hum",String.valueOf(sens.getHumidity()), sens.getTimeStampString()));
 		}
-
+		}
 		return newlist;
 	}
 

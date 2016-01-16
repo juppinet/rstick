@@ -15,7 +15,8 @@ public class App
     public static void main( String[] args ) {
     	
         try {
-            final ResourceConfig rc = new ResourceConfig().packages("net.jstick.jersey");
+            //final ResourceConfig rc = new ResourceConfig().packages("net.jstick.jersey");
+            final ResourceConfig rc = new AppConfig();
             final URI bind = new URI("http://0.0.0.0:9090/api/");
             final HttpServer server = GrizzlyHttpServerFactory.createHttpServer(bind, rc,false);
             server.getServerConfiguration().setDefaultErrorPageGenerator(new CustomErrorPageGenerator());
